@@ -1,0 +1,63 @@
+apply plugin: 'groovy'
+
+ 
+
+repositories {
+
+    mavenCentral()
+
+    maven {
+
+        url 'https://repo.jenkins-ci.org/public/'
+
+    }
+
+}
+
+ 
+
+dependencies {
+
+    implementation 'org.codehaus.groovy:groovy-all:2.4.12'
+
+    implementation 'com.cloudbees:groovy-cps:1.32'
+
+    implementation 'org.jenkins-ci.main:jenkins-core:2.263.4'
+
+    implementation group: 'org.jenkins-ci.plugins', name: 'artifactory', version: '3.6.2', ext: 'jar'
+
+    implementation group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-api', version: '2.42', ext: 'jar'
+
+    implementation group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-cps', version: '2.90', ext: 'jar'
+
+    implementation group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-support', version: '3.8', ext: 'jar'
+
+    implementation group: 'org.jenkins-ci.main', name: 'maven-plugin', version: '3.6', ext: 'jar'
+
+    implementation group: 'org.jenkins-ci.plugins', name: 'pipeline-utility-steps', version: '2.7.1', ext: 'jar'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.lesfurets:jenkins-pipeline-unit:1.2'
+    
+    testImplementation "org.mockito:mockito-core:5.5.0"
+    testImplementation "org.mockito:mockito-inline:5.2.0"
+
+}
+
+ 
+
+sourceSets {
+
+    main {
+        groovy {
+            srcDirs= ['src']
+        }
+
+    }	
+    test{
+		groovy {
+			srcDirs = ['test']
+		}
+	}
+
+}
