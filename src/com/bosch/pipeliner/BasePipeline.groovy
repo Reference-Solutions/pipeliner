@@ -393,7 +393,7 @@ abstract class BasePipeline implements Serializable {
      * Create a workspace name that is not badly mangled by Jenkins/Gitlab
      */
     String createWorkspaceName() {
-        String base = script.WORKSPACE + "/"
+        String base = "workspace/"
         String name = sanitizeJobName(this.env.JOB_NAME)
         //executor prefix e<number>, always start folders with a valid character
         String workspaceName = base + "e" + this.script.EXECUTOR_NUMBER + "_" + name
